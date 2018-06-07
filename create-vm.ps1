@@ -57,8 +57,6 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id `
   -EnableAcceleratedNetworking
 
-$config = New-AzureRmDiskConfig -AccountType StandardLRS -OsType Windows -Location japaneast -CreateOption Empty -DiskSizeGB 32
-New-AzureRmDisk -ResourceGroupName $resourceGroup -DiskName datadisk -Disk $config
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmsize | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred -DisablePasswordAuthentication | `
